@@ -1,0 +1,26 @@
+version: '2'
+services:
+  web:
+    image: kritr/laravel
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    volumes:
+      - ./src/:/var/www/laravel/
+    links:
+      - db
+    command: bash -c "composer update -d /var/www/laravel/ --no-scripts ; composer install -d /var/www/laravel/ ; until php /var/www/laravel/artisan migrate ; do echo 'Retrying Migration' ; done ; /usr/sbin/apache2ctl -D FOREGROUND" 
+  db:
+    image: mysql
+    expose:
+      - "3306"
+#   volumes:
+#      - ./testDB.sql:/docker-entrypoint-initdb.d/db.sql
+#      - ./data/:/var/lib/mysql
+#      - ./data/mysql:/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=forge
+      - MYSQL_USER=forge
+      - MYSQL_PASSWORD=password
