@@ -7,7 +7,7 @@ services:
     depends_on:
       - db
     volumes:
-      - ./src/:/var/www/laravel/
+      - .:/var/www/laravel/
     links:
       - db
     command: bash -c "composer update -d /var/www/laravel/ --no-scripts ; composer install -d /var/www/laravel/ ; until php /var/www/laravel/artisan migrate ; do echo 'Retrying Migration' ; done ; /usr/sbin/apache2ctl -D FOREGROUND" 

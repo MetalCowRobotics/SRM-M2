@@ -15,14 +15,14 @@ class CreateSponsorsTable extends Migration
     {
         Schema::create('sponsors', function (Blueprint $table) {
             $table->increments('id');
-	    $table->string("name");
+	        $table->string("name");
             $table->integer("zipcode");
-	    $table->string("state");
-	    $table->string("city");
-	    $table->string("address");
-	    $table->string("contact_name")->nullable();
-	    $table->string("contact_email")->nullable();
-	    $table->string("contact_phone")->nullable();
+	        $table->string("state");
+	        $table->string("city");
+	        $table->string("address");
+	        $table->string("contact_name")->nullable();
+	        $table->string("contact_email")->nullable();
+	        $table->string("contact_phone")->nullable();
             $table->timestamps();
         });
     }

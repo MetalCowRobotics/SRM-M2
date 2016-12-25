@@ -31,4 +31,18 @@ class HomeController extends Controller
 	{
 		return view('addsponsor');
 	}
+    public function insert(Request $request)
+    {
+        $sponsor = new Sponsor;
+        $sponsor->name = $request->name;
+        $sponsor->zipcode = $request->zip;
+        $sponsor->city = $request->city;
+        $sponsor->state = $request->state;
+        $sponsor->address = $request->address;
+        $sponsor->save();
+
+        return redirect()->action('HomeController@index');
+        
+        
+    }
 }

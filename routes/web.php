@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/addsponsor', 'HomeController@add');
+Route::post('/insertsponsor', 'HomeController@insert');

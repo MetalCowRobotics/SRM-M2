@@ -30,7 +30,7 @@
 			        </a>
 				  </div>
 				    <div class="header-aside">
-				        <a class="header-aside-item new-sponsor-button-wrapper" href="addsponsor.html">
+				        <a class="header-aside-item new-sponsor-button-wrapper" href="addsponsor">
 					      <img src="media\add_button.png">
 					            <div>Add sponsor</div>
 						        </a>
